@@ -4,6 +4,7 @@
 namespace Person;
 
 use Data\DataStructure;
+use \DateTimeZone;
 
 class Person
 {
@@ -27,5 +28,14 @@ class Person
     public function name() : string
     {
         return $this->dataStructure->getValue('person_name');
+    }
+
+    /**
+     * @return DateTimeZone
+     * @throws \Exception
+     */
+    public function timezone() : DateTimeZone
+    {
+        return $this->dataStructure->getValue('timezone');
     }
 }
