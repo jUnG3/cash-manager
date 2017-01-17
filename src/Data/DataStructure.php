@@ -2,10 +2,9 @@
 
 namespace CashManager\Data;
 
-use CashManager\Factory\CreateObjectInterface;
-use \Exception;
+use Exception;
 
-class DataStructure implements DataStructureReaderInterface, DataStructureWriterInterface, CreateObjectInterface
+class DataStructure implements DataStructureInterface
 {
     /**
      * Represents plain data organized as key value array
@@ -44,11 +43,11 @@ class DataStructure implements DataStructureReaderInterface, DataStructureWriter
      * Returns the value for the given name
      * @param string $name
      * @return null|mixed
-     * @throws \Exception
+     * @throws Exception
      */
     public function getValue(string $name)
     {
-        if ($this->testKey($name)) {
+        if (!$this->testKey($name)) {
             throw new Exception('Key ' . $name . ' can not be found');
         }
         return $this->plainDataStructure[$name];
