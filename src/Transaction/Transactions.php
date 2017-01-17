@@ -2,8 +2,8 @@
 
 namespace CashManager\Transaction;
 
-use \SeekableIterator;
-use \OutOfBoundsException;
+use SeekableIterator;
+use OutOfBoundsException;
 
 class Transactions implements SeekableIterator
 {
@@ -30,13 +30,14 @@ class Transactions implements SeekableIterator
      */
     public function add(Transaction $transaction)
     {
-        $this->transactions[] = $transaction;
+        $this->transactions[$this->position] = $transaction;
+        $this->next();
     }
 
     /**
      * @return Transaction
      */
-    public function current()
+    public function current() : Transaction
     {
         return $this->transactions[$this->position];
     }
@@ -53,7 +54,7 @@ class Transactions implements SeekableIterator
      * Returns the current position
      * @return int
      */
-    public function key()
+    public function key() : int
     {
         return $this->position;
     }
@@ -62,7 +63,7 @@ class Transactions implements SeekableIterator
      * Test if current transaction is an valid value
      * @return bool
      */
-    public function valid()
+    public function valid() : bool
     {
         return isset($this->transactions[$this->position]) ?
             $this->transactions[$this->position] instanceof Transaction : false;
