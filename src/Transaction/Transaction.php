@@ -5,6 +5,7 @@ namespace CashManager\Transaction;
 use CashManager\Balance\Balance;
 use CashManager\Data\DataStructure;
 use DateTime;
+use Ramsey\Uuid\Uuid;
 
 class Transaction
 {
@@ -26,6 +27,7 @@ class Transaction
     {
         $this->transactionData = $data;
         $this->openingBalance = $balance;
+        $this->transactionData->setValue('transaction_id', Uuid::uuid4()->getInteger());
     }
 
     /**
