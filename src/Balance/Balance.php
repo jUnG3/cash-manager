@@ -1,14 +1,14 @@
 <?php
 
-namespace Balance;
+namespace CashManager\Balance;
 
 use Exception;
-use Data\DataStructure;
+use CashManager\Data\DataStructure;
 
 class Balance
 {
     /**
-     * @var \Data\DataStructure
+     * @var DataStructure
      */
     private $balanceData;
 

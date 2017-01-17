@@ -1,10 +1,9 @@
 <?php
 
-namespace Transaction;
+namespace CashManager\Transaction;
 
-use Balance\Balance;
-use Data\DataStructure;
-use Data\DataStructureFactory;
+use CashManager\Balance\Balance;
+use CashManager\Data\DataStructure;
 use DateTime;
 
 class Transaction

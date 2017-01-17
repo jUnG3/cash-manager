@@ -1,8 +1,8 @@
 <?php
 
-namespace Data;
+namespace CashManager\Data;
 
-use \Factory\CreateObjectInterface;
+use CashManager\Factory\CreateObjectInterface;
 
 class DataStructureFactory implements CreateObjectInterface
 {

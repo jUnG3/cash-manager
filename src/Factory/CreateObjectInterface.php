@@ -1,6 +1,6 @@
 <?php
 
-namespace Factory;
+namespace CashManager\Factory;
 
 interface CreateObjectInterface
 {

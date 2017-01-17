@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Person;
+namespace CashManager\Person;
 
-use Data\DataStructure;
+use CashManager\Data\DataStructure;
 use \DateTimeZone;
 
 class Person

@@ -1,8 +1,8 @@
 <?php
 
-namespace Currency;
+namespace CashManager\Currency;
 
-use Data\DataStructure;
+use CashManager\Data\DataStructure;
 
 class Currency
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Data;
+namespace CashManager\Data;
 
 
 interface DataStructureWriterInterface

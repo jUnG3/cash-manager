@@ -1,6 +1,6 @@
 <?php
 
-namespace Transaction;
+namespace CashManager\Transaction;
 
 use \SeekableIterator;
 use \OutOfBoundsException;

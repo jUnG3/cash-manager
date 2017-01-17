@@ -1,12 +1,12 @@
 <?php
 
-namespace Account;
+namespace CashManager\Account;
 
-use Data\DataStructure;
-use Data\DataStructureReaderInterface;
-use Person\Person;
-use Transaction\Transactions;
-use Currency\Currency;
+use CashManager\Data\DataStructure;
+use CashManager\Data\DataStructureReaderInterface;
+use CashManager\Person\Person;
+use CashManager\Transaction\Transactions;
+use CashManager\Currency\Currency;
 use Ramsey\Uuid\Uuid;
 
 class Account
@@ -65,7 +65,7 @@ class Account
     }
 
     /**
-     * @return \Currency\Currency
+     * @return Currency
      */
     public function currency() : Currency
     {
