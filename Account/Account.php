@@ -2,10 +2,12 @@
 
 namespace Account;
 
+use Data\DataStructure;
 use Data\DataStructureReaderInterface;
 use Person\Person;
 use Transaction\Transactions;
 use Currency\Currency;
+use Ramsey\Uuid\Uuid;
 
 class Account
 {
@@ -13,14 +15,37 @@ class Account
      * @var DataStructureReaderInterface
      */
     private $accountData;
+    /**
+     * @var Transactions
+     */
+    private $transactions;
+    /**
+     * @var Person
+     */
+    private $person;
+    /**
+     * @var Currency
+     */
+    private $currency;
 
     /**
      * Account constructor.
-     * @param DataStructureReaderInterface $dataStructure
+     * @param DataStructure $dataStructure
+     * @param Transactions $transactions
+     * @param Person $person
+     * @param Currency $currency
      */
-    public function __construct(DataStructureReaderInterface $dataStructure)
-    {
+    public function __construct(
+        DataStructure $dataStructure,
+        Transactions $transactions,
+        Person $person,
+        Currency $currency
+    ) {
         $this->accountData = $dataStructure;
+        $this->transactions = $transactions;
+        $this->person = $person;
+        $this->currency = $currency;
+        $this->accountData->setValue('account_id', Uuid::uuid4()->getInteger());
     }
 
     /**
@@ -28,7 +53,7 @@ class Account
      */
     public function transactions() : Transactions
     {
-        return $this->accountData->getValue('transaction_list');
+        return $this->transactions;
     }
 
     /**
@@ -36,7 +61,7 @@ class Account
      */
     public function person() : Person
     {
-        return $this->accountData->getValue('person');
+        return $this->person;
     }
 
     /**
@@ -44,6 +69,6 @@ class Account
      */
     public function currency() : Currency
     {
-        return $this->accountData->getValue('currency');
+        return $this->currency;
     }
 }

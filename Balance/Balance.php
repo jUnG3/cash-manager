@@ -3,7 +3,7 @@
 namespace Balance;
 
 use Exception;
-use \Data\DataStructure;
+use Data\DataStructure;
 
 class Balance
 {

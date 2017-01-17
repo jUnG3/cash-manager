@@ -13,14 +13,20 @@ class Transaction
      * @var DataStructure
      */
     private $transactionData;
+    /**
+     * @var Balance
+     */
+    private $openingBalance;
 
     /**
      * Transaction constructor.
      * @param DataStructure $data
+     * @param Balance $balance
      */
-    public function __construct(DataStructure $data)
+    public function __construct(DataStructure $data, Balance $balance = null)
     {
         $this->transactionData = $data;
+        $this->openingBalance = $balance;
     }
 
     /**
@@ -30,7 +36,7 @@ class Transaction
      */
     public function openingBalance() : Balance
     {
-        return $this->transactionData->getValue('opening_balance');
+        return $this->openingBalance;
     }
 
     /**
@@ -63,10 +69,9 @@ class Transaction
      */
     private function addToBalance(float $amount)
     {
-        $tmp = $this->openingBalance()->currentBalance() + $amount;
         $this->transactionData->setValue(
             'new_balance',
-            new Balance(DataStructureFactory::create(['current_state' => $tmp]))
+            $this->openingBalance()->currentBalance() + $amount
         );
     }
 
@@ -76,10 +81,9 @@ class Transaction
      */
     private function removeFromBalance(float $amount)
     {
-        $tmp = $this->openingBalance()->currentBalance() - $amount;
         $this->transactionData->setValue(
             'new_balance',
-            new Balance(DataStructureFactory::create(['current_state' => $tmp]))
+            $this->openingBalance()->currentBalance() - $amount
         );
     }
 
@@ -96,6 +100,6 @@ class Transaction
      */
     private function addTimestamp()
     {
-        $this->transactionData->setValue('created_on', (new DateTime())->format('Y-d-m'));
+        $this->transactionData->setValue('created_on', (new DateTime())->format('Y-m-d H:i:s'));
     }
 }
