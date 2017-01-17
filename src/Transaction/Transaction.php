@@ -3,14 +3,14 @@
 namespace CashManager\Transaction;
 
 use CashManager\Balance\Balance;
-use CashManager\Data\DataStructure;
+use CashManager\Data\DataStructureInterface;
 use DateTime;
 use Ramsey\Uuid\Uuid;
 
 class Transaction
 {
     /**
-     * @var DataStructure
+     * @var DataStructureInterface
      */
     private $transactionData;
     /**
@@ -20,10 +20,10 @@ class Transaction
 
     /**
      * Transaction constructor.
-     * @param DataStructure $data
+     * @param DataStructureInterface $data
      * @param Balance $balance
      */
-    public function __construct(DataStructure $data, Balance $balance = null)
+    public function __construct(DataStructureInterface $data, Balance $balance = null)
     {
         $this->transactionData = $data;
         $this->openingBalance = $balance;

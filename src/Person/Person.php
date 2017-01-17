@@ -3,21 +3,21 @@
 
 namespace CashManager\Person;
 
-use CashManager\Data\DataStructure;
-use \DateTimeZone;
+use CashManager\Data\DataStructureInterface;
+use DateTimeZone;
 
 class Person
 {
     /**
-     * @var DataStructure
+     * @var DataStructureInterface
      */
     private $dataStructure;
 
     /**
      * Person constructor.
-     * @param DataStructure $dataStructure
+     * @param DataStructureInterface $dataStructure
      */
-    public function __construct(DataStructure $dataStructure)
+    public function __construct(DataStructureInterface $dataStructure)
     {
         $this->dataStructure = $dataStructure;
     }

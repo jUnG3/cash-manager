@@ -2,20 +2,20 @@
 
 namespace CashManager\Currency;
 
-use CashManager\Data\DataStructure;
+use CashManager\Data\DataStructureInterface;
 
 class Currency
 {
     /**
-     * @var DataStructure
+     * @var DataStructureInterface
      */
     private $dataStructure;
 
     /**
      * Currency constructor.
-     * @param DataStructure $dataStructure
+     * @param DataStructureInterface $dataStructure
      */
-    public function __construct(DataStructure $dataStructure)
+    public function __construct(DataStructureInterface $dataStructure)
     {
         $this->dataStructure = $dataStructure;
     }

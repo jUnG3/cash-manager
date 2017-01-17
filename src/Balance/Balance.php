@@ -3,20 +3,20 @@
 namespace CashManager\Balance;
 
 use Exception;
-use CashManager\Data\DataStructure;
+use CashManager\Data\DataStructureInterface;
 
 class Balance
 {
     /**
-     * @var DataStructure
+     * @var DataStructureInterface
      */
     private $balanceData;
 
     /**
      * Balance constructor.
-     * @param DataStructure $dataStructure
+     * @param DataStructureInterface $dataStructure
      */
-    public function __construct(DataStructure $dataStructure)
+    public function __construct(DataStructureInterface $dataStructure)
     {
         $this->balanceData = $dataStructure;
     }
