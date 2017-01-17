@@ -15,7 +15,7 @@ class Currency
      * Currency constructor.
      * @param DataStructure $dataStructure
      */
-    public function __construct(DataStructure $dataStructure = null)
+    public function __construct(DataStructure $dataStructure)
     {
         $this->dataStructure = $dataStructure;
     }
