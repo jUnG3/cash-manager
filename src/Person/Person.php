@@ -4,7 +4,7 @@
 namespace CashManager\Person;
 
 use CashManager\Data\DataStructureInterface;
-use DateTimeZone;
+use Exception;
 
 class Person
 {
@@ -31,10 +31,10 @@ class Person
     }
 
     /**
-     * @return DateTimeZone
-     * @throws \Exception
+     * @return string
+     * @throws Exception
      */
-    public function timezone() : DateTimeZone
+    public function timezone() : string
     {
         return $this->dataStructure->getValue('timezone');
     }
