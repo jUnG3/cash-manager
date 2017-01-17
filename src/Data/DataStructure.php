@@ -2,9 +2,10 @@
 
 namespace CashManager\Data;
 
+use CashManager\Factory\CreateObjectInterface;
 use \Exception;
 
-class DataStructure implements DataStructureReaderInterface, DataStructureWriterInterface
+class DataStructure implements DataStructureReaderInterface, DataStructureWriterInterface, CreateObjectInterface
 {
     /**
      * Represents plain data organized as key value array
@@ -16,9 +17,27 @@ class DataStructure implements DataStructureReaderInterface, DataStructureWriter
      * DataStructure constructor.
      * @param array $data
      */
-    public function __construct($data = [])
+    private function __construct($data = [])
     {
         $this->plainDataStructure = $data;
+    }
+
+    /**
+     * @param array $data
+     * @return DataStructure
+     */
+    public static function create(array $data = [])
+    {
+        return new static($data);
+    }
+
+    /**
+     * @param string $key
+     * @return bool
+     */
+    public function testKey(string $key) : bool
+    {
+        return array_key_exists($key, $this->plainDataStructure);
     }
 
     /**
@@ -29,7 +48,7 @@ class DataStructure implements DataStructureReaderInterface, DataStructureWriter
      */
     public function getValue(string $name)
     {
-        if (!array_key_exists($name, $this->plainDataStructure)) {
+        if ($this->testKey($name)) {
             throw new Exception('Key ' . $name . ' can not be found');
         }
         return $this->plainDataStructure[$name];

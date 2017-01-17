@@ -13,4 +13,11 @@ interface DataStructureReaderInterface
      * @throws Exception
      */
     public function getValue(string $name);
+
+    /**
+     * @param string $key
+     * @return bool
+     * @throws Exception
+     */
+    public function testKey(string $key);
 }
