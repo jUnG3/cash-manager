@@ -3,7 +3,7 @@
 namespace CashManager\Identifier;
 
 
-interface Identifier
+interface IdentifierInterface
 {
     /**
      * @return int

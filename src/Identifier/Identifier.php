@@ -1,15 +1,22 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jUnG3
- * Date: 1/18/17
- * Time: 7:54 PM
- */
 
 namespace CashManager\Identifier;
 
 
-class Identifier
+class Identifier implements IdentifierInterface
 {
+    /**
+     * Identifier constructor.
+     */
+    private function __construct()
+    {
+    }
 
+    /**
+     * @return int
+     */
+    public static function createIntegerId()
+    {
+        return random_int(0, PHP_INT_MAX);
+    }
 }
