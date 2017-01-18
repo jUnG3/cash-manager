@@ -1,6 +1,8 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use CashManager\Currency\Currency;
+use CashManager\Data\DataStructure;
 
 class CurrencyTest extends TestCase
 {
@@ -9,7 +11,7 @@ class CurrencyTest extends TestCase
      */
     public function testName($a, $excpected)
     {
-        $currency = new \Currency\Currency(new \Data\DataStructure($a));
+        $currency = new Currency(DataStructure::create($a));
         $this->assertEquals($excpected, $currency->name());
     }
 
