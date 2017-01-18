@@ -21,12 +21,12 @@ class TransactionTest extends TestCase
      * @param $a
      * @param $b
      * @param $result
-     * @dataProvider withdrawDataProvider
+     * @dataProvider depositDataProvider
      */
     public function testDeposit($a, $b, $result)
     {
         $transaction = new Transaction(DataStructure::create(), new Balance(DataStructure::create($a)));
-        $transaction->withdraw($b);
+        $transaction->deposit($b);
         $this->assertEquals($result, $transaction->newBalanceValue());
     }
 
