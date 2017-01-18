@@ -3,10 +3,10 @@
 namespace CashManager\Account;
 
 use CashManager\Data\DataStructureInterface;
+use CashManager\Identifier\Identifier;
 use CashManager\Person\Person;
 use CashManager\Transaction\Transactions;
 use CashManager\Currency\Currency;
-use Ramsey\Uuid\Uuid;
 
 class Account
 {
@@ -44,7 +44,7 @@ class Account
         $this->transactions = $transactions;
         $this->person = $person;
         $this->currency = $currency;
-        $this->accountData->setValue('account_id', Uuid::uuid4()->getInteger());
+        $this->accountData->setValue('account_id', Identifier::createIntegerId());
     }
 
     /**
