@@ -23,7 +23,7 @@ class Transaction
      * @param DataStructureInterface $data
      * @param Balance $balance
      */
-    public function __construct(DataStructureInterface $data, Balance $balance = null)
+    public function __construct(DataStructureInterface $data, Balance $balance)
     {
         $this->transactionData = $data;
         $this->openingBalance = $balance;
