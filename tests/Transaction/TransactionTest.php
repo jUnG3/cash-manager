@@ -1,23 +1,33 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use Transaction\Transaction;
-use Data\DataStructureFactory;
+use CashManager\Transaction\Transaction;
+use CashManager\Data\DataStructure;
+use CashManager\Balance\Balance;
 
 class TransactionTest extends TestCase
 {
     /**
      * @dataProvider withdrawDataProvider
      */
-    public function testWithdraw()
+    public function testWithdraw($a, $b, $result)
     {
-
+        $transaction = new Transaction(DataStructure::create(), new Balance(DataStructure::create($a)));
+        $transaction->withdraw($b);
+        $this->assertEquals($result, $transaction->newBalanceValue());
     }
 
+    /**
+     * @return array
+     */
     public function withdrawDataProvider()
     {
         return [
-            'Withdraw 20 from balance' => []
+            'Withdraw 20 from balance' => [['current_state' => 200.00], 20.00, 180.00],
+            'Withdraw 30 from balance' => [['current_state' => 200.00], 30.00, 170.00],
+            'Withdraw 40 from balance' => [['current_state' => 200.00], 40.00, 160.00],
+            'Withdraw 50 from balance' => [['current_state' => 200.00], 50.00, 150.00],
+            'Withdraw 60 from balance' => [['current_state' => 200.00], 60.00, 140.00],
         ];
     }
 }

@@ -65,6 +65,14 @@ class Transaction
     }
 
     /**
+     * @return float
+     */
+    public function newBalanceValue() : float
+    {
+        return $this->transactionData->getValue('new_balance');
+    }
+
+    /**
      * Adds amount to balance
      * @param float $amount
      */

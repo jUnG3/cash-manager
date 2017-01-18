@@ -6,7 +6,7 @@
     </testsuites>
     <testsuites>
         <testsuite name="transaction">
-            <directory>tests/Transactions</directory>
+            <directory>tests/Transaction</directory>
         </testsuite>
     </testsuites>
 </phpunit>
