@@ -2,6 +2,7 @@
 
 namespace CashManager\Transaction;
 
+use CashManager\Account\Account;
 use SeekableIterator;
 use OutOfBoundsException;
 
@@ -15,14 +16,20 @@ class Transactions implements SeekableIterator
      * @var int
      */
     private $position;
+    /**
+     * @var Account
+     */
+    private $account;
 
     /**
      * Transactions constructor.
+     * @param Account $account
      */
-    public function __construct()
+    public function __construct(Account $account)
     {
         $this->transactions = [];
         $this->position = 0;
+        $this->account = $account;
     }
 
     /**
@@ -87,5 +94,21 @@ class Transactions implements SeekableIterator
         }
 
         $this->position = $position;
+    }
+
+    /**
+     * @return Account
+     */
+    public function getAccount() : Account
+    {
+        return $this->account;
+    }
+
+    /**
+     * @param Account $account
+     */
+    public function setAccount(Account $account)
+    {
+        $this->account = $account;
     }
 }
