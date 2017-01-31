@@ -33,18 +33,20 @@ class Account
      * @param Transactions $transactions
      * @param Person $person
      * @param Currency $currency
+     * @param int $accountId
      */
     public function __construct(
         DataStructureInterface $dataStructure,
         Transactions $transactions,
         Person $person,
-        Currency $currency
+        Currency $currency,
+        int $accountId
     ) {
         $this->accountData = $dataStructure;
         $this->transactions = $transactions;
         $this->person = $person;
         $this->currency = $currency;
-        $this->addAccountId();
+        $this->accountData->setValue('account_id', $accountId);
     }
 
     /**
@@ -69,13 +71,5 @@ class Account
     public function currency() : Currency
     {
         return $this->currency;
-    }
-
-    /**
-     * Sets the account id
-     */
-    private function addAccountId()
-    {
-        $this->accountData->setValue('account_id', Identifier::createIntegerId());
     }
 }
