@@ -3,7 +3,6 @@
 namespace CashManager\Account;
 
 use CashManager\Data\DataStructureInterface;
-use CashManager\Identifier\Identifier;
 use CashManager\Person\Person;
 use CashManager\Transaction\Transactions;
 use CashManager\Currency\Currency;

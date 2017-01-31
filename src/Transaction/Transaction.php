@@ -4,7 +4,6 @@ namespace CashManager\Transaction;
 
 use CashManager\Balance\Balance;
 use CashManager\Data\DataStructureInterface;
-use CashManager\Identifier\Identifier;
 use DateTime;
 
 class Transaction
