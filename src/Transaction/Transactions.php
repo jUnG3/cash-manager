@@ -37,7 +37,7 @@ class Transactions implements SeekableIterator
      */
     public function add(Transaction $transaction)
     {
-        $this->transactions[$this->position] = $transaction;
+        array_push($this->transactions, $transaction);
     }
 
     /**
