@@ -44,7 +44,7 @@ class Account
         $this->transactions = $transactions;
         $this->person = $person;
         $this->currency = $currency;
-        $this->accountData->setValue('account_id', Identifier::createIntegerId());
+        $this->addAccountId();
     }
 
     /**
@@ -69,5 +69,13 @@ class Account
     public function currency() : Currency
     {
         return $this->currency;
+    }
+
+    /**
+     * Sets the account id
+     */
+    private function addAccountId()
+    {
+        $this->accountData->setValue('account_id', Identifier::createIntegerId());
     }
 }
