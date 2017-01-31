@@ -7,6 +7,25 @@ use CashManager\Data\DataStructure;
 class CurrencyTest extends TestCase
 {
     /**
+     * @covers Currency::__construct
+     * @expectedException TypeError
+     */
+    public function testCurrencyConstructor()
+    {
+        $c = new Currency(null);
+    }
+
+    /**
+     * @covers Currency::_construct
+     */
+    public function testCanBeCreatedWithNoData()
+    {
+        $c = new Currency(DataStructure::create());
+        $this->assertInstanceOf('CashManager\\Currency\\Currency', $c);
+    }
+
+    /**
+     * @covers       DataStructure::name
      * @dataProvider currencyDataProvider
      */
     public function testName($a, $excpected)
@@ -15,6 +34,9 @@ class CurrencyTest extends TestCase
         $this->assertEquals($excpected, $currency->name());
     }
 
+    /**
+     * @return array
+     */
     public function currencyDataProvider()
     {
         return [
