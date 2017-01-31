@@ -8,11 +8,16 @@ use CashManager\Balance\Balance;
 class TransactionTest extends TestCase
 {
     /**
+     * @covers Transaction::withdraw
      * @dataProvider withdrawDataProvider
      */
     public function testWithdraw($a, $b, $result)
     {
-        $transaction = new Transaction(DataStructure::create(), new Balance(DataStructure::create($a)));
+        $transaction = new Transaction(
+            DataStructure::create(),
+            new Balance(DataStructure::create($a)),
+            \CashManager\Identifier\Identifier::createIntegerId()
+        );
         $transaction->withdraw($b);
         $this->assertEquals($result, $transaction->newBalanceValue());
     }
@@ -21,11 +26,16 @@ class TransactionTest extends TestCase
      * @param $a
      * @param $b
      * @param $result
+     * @covers Transaction::deposit
      * @dataProvider depositDataProvider
      */
     public function testDeposit($a, $b, $result)
     {
-        $transaction = new Transaction(DataStructure::create(), new Balance(DataStructure::create($a)));
+        $transaction = new Transaction(
+            DataStructure::create(),
+            new Balance(DataStructure::create($a)),
+            \CashManager\Identifier\Identifier::createIntegerId()
+        );
         $transaction->deposit($b);
         $this->assertEquals($result, $transaction->newBalanceValue());
     }
