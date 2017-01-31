@@ -22,12 +22,13 @@ class Transaction
      * Transaction constructor.
      * @param DataStructureInterface $data
      * @param Balance $balance
+     * @param int $transactionId
      */
-    public function __construct(DataStructureInterface $data, Balance $balance)
+    public function __construct(DataStructureInterface $data, Balance $balance, int $transactionId)
     {
         $this->transactionData = $data;
         $this->openingBalance = $balance;
-        $this->transactionData->setValue('transaction_id', Identifier::createIntegerId());
+        $this->transactionData->setValue('transaction_id', $transactionId);
     }
 
     /**
