@@ -9,4 +9,9 @@
             <directory>tests/Transaction</directory>
         </testsuite>
     </testsuites>
+    <testsuites>
+        <testsuite name="datastructure">
+            <directory>tests/Datastructure</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>
