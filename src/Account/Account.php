@@ -32,20 +32,20 @@ class Account
      * @param Transactions $transactions
      * @param Person $person
      * @param Currency $currency
-     * @param int $accountId
      */
     public function __construct(
         DataStructureInterface $dataStructure,
         Transactions $transactions,
         Person $person,
-        Currency $currency,
-        int $accountId
+        Currency $currency
     ) {
+        if ($dataStructure->testKey('account_id')) {
+            throw new \InvalidArgumentException('Account id is not set');
+        }
         $this->accountData = $dataStructure;
         $this->transactions = $transactions;
         $this->person = $person;
         $this->currency = $currency;
-        $this->accountData->setValue('account_id', $accountId);
     }
 
     /**
