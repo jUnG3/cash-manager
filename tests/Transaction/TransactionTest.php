@@ -1,4 +1,5 @@
 <?php
+namespace tests\Transaction;
 
 use PHPUnit\Framework\TestCase;
 use CashManager\Transaction\Transaction;
@@ -8,7 +9,7 @@ use CashManager\Balance\Balance;
 class TransactionTest extends TestCase
 {
     /**
-     * @covers Transaction::withdraw
+     * @covers       Transaction::withdraw
      * @dataProvider withdrawDataProvider
      */
     public function testWithdraw($a, $b, $result)
@@ -26,7 +27,7 @@ class TransactionTest extends TestCase
      * @param $a
      * @param $b
      * @param $result
-     * @covers Transaction::deposit
+     * @covers       Transaction::deposit
      * @dataProvider depositDataProvider
      */
     public function testDeposit($a, $b, $result)

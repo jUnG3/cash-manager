@@ -1,4 +1,5 @@
 <?php
+namespace tests\Currency;
 
 use PHPUnit\Framework\TestCase;
 use CashManager\Currency\Currency;
@@ -8,7 +9,7 @@ class CurrencyTest extends TestCase
 {
     /**
      * @covers Currency::__construct
-     * @expectedException TypeError
+     * @expectedException \TypeError
      */
     public function testCurrencyConstructor()
     {

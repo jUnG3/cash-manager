@@ -1,10 +1,13 @@
 <?php
+namespace tests\Datastructure;
 
-class DatastructureTest extends PHPUnit\Framework\TestCase
+use PHPUnit\Framework\TestCase;
+
+class DatastructureTest extends TestCase
 {
     /**
      * @covers DataStructure::create
-     * @expectedException TypeError
+     * @expectedException \TypeError
      */
     public function testCreateMethodWithNothing()
     {
@@ -21,7 +24,7 @@ class DatastructureTest extends PHPUnit\Framework\TestCase
 
     /**
      * @covers       DataStructure::getValue
-     * @expectedException Exception
+     * @expectedException \Exception
      * @dataProvider testDataException
      * @param array $data
      * @param string $key
